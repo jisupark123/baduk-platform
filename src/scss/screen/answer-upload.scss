@@ -1,0 +1,9 @@
+.answer-upload{
+  display: flex;
+  flex-direction: column;
+  margin: 50px 0 0 50px;
+  canvas{
+    width: 360px;
+    margin: 30px 30px 30px 0;
+  }
+}

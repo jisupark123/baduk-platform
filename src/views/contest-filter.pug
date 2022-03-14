@@ -1,0 +1,56 @@
+extend base
+
+block content 
+    form(method="POST" autocomplete='off')
+        input(name="name" type="text" id="name" value=loggedInUser.name)
+        input(name="sex" type="radio" id="male" value="male")
+        label(for="male") 남
+        input(name="sex" type="radio" id="femail" value="female")
+        label(for="femail") 여
+        br
+        label(for="age") 출생년도
+        select(name="age" id="age")  
+            -const maxYear = new Date().getFullYear() - 4
+            -for(i=0; i< 68; i++)
+                option(value=`${maxYear-i}`) #{maxYear-i} 
+        div 
+            span 재학중인 학교
+            label(for="university") 대학교
+            input(type="checkbox" name="school" value="university" id="university")
+            label(for="high") 고등학교
+            input(type="checkbox" name="school" value="high" id="high")
+            label(for="middle") 중학교
+            input(type="checkbox" name="school" value="middle" id="middle")
+            label(for="elementary") 초등학교
+            input(type="checkbox" name="school" value="elementary" id="elementary")
+            label(for="nothing") 없음
+            input(type="checkbox" name="school" value="nothing" id="nothing")
+        div
+            span 현소속
+            label(for="national-now") 내셔널리그
+            input(type="checkbox" name="belongNow" value="national" id="national-now") 
+            label(for="city-now") 시도리그
+            input(type="checkbox" name="belongNow" value="city" id="city-now") 
+            label(for="seoul-semi-pro-now") 서울 연구생
+            input(type="checkbox" name="belongNow" value="seoul-semi-pro" id="seoul-semi-pro-now") 
+            label(for="local-semi-pro-now") 지역 연구생
+            input(type="checkbox" name="belongNow" value="local-semi-pro" id="local-semi-pro-now") 
+            label(for="federation-now") 한바연
+            input(type="checkbox" name="belongNow" value="federation" id="federation-now") 
+            label(for="individual-now") 소속 없음
+            input(type="checkbox" name="belongNow" value="individual" id="individual-now")
+        div 
+            span 전소속
+            label(for="national-pre") 내셔널리그
+            input(type="checkbox" name="belongPre" value="national" id="national-pre") 
+            label(for="city-pre") 시도리그
+            input(type="checkbox" name="belongPre" value="city" id="city-pre") 
+            label(for="seoul-semi-pro-pre") 서울 연구생
+            input(type="checkbox" name="belongPre" value="seoul-semi-pro" id="seoul-semi-pro-pre") 
+            label(for="local-semi-pro-pre") 지역 연구생
+            input(type="checkbox" name="belongNow" value="local-semi-pro" id="local-semi-pro-pre") 
+            label(for="nothing-pre") 해당 없음
+            input(type="checkbox" name="belongPre" value="nothing" id="nothing-pre")  
+
+        input(type="submit" value="완료")
+        

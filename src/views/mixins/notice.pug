@@ -1,0 +1,9 @@
+mixin notice(notice)
+    div
+        a(href=`/notice/${notice._id}`) 
+            if notice.isImportant 
+                span 중요 
+            span #{notice.title}  
+            br
+            span #{notice.writtenAt} 
+            hr

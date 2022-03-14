@@ -1,0 +1,57 @@
+{
+  "name": "baduk-platform",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node build/init.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "build": "npm run build:server && npm run build:assets",
+    "build:server": "babel src -d build",
+    "build:assets": "webpack --mode=production",
+    "dev:server": "nodemon",
+    "dev:assets": "webpack --mode=development -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jisupark123/baduk-platform.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jisupark123/baduk-platform/issues"
+  },
+  "homepage": "https://jisupark123.github.io/baduk-platform/",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-mongo": "^4.6.0",
+    "core-js": "^3.19.1",
+    "dotenv": "^10.0.0",
+    "eval": "^0.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.0.13",
+    "morgan": "^1.10.0",
+    "node-fetch": "^2.6.1",
+    "pug": "^3.0.2",
+    "regenerator-runtime": "^0.13.9"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.15.8",
+    "@babel/preset-env": "^7.16.4",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.5.1",
+    "mini-css-extract-plugin": "^2.4.4",
+    "nodemon": "^2.0.15",
+    "path-browserify": "^1.0.1",
+    "sass": "^1.43.4",
+    "sass-loader": "^12.3.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.62.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-node-externals": "^3.0.0",
+    "gh-pages": "^3.2.3"
+  }
+}

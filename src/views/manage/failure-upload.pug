@@ -1,0 +1,11 @@
+extend ../base
+
+block content 
+  span 실패도
+  div.failure-upload
+    div.failure-upload__canvas-row
+      canvas(id='failure1' class="failure-canvas")
+    button.failure-upload__add-canvas 실패도 추가
+    button.failure-upload__finish-btn 완료
+block script 
+    script(src="/assets/js/failureUpload.js") 

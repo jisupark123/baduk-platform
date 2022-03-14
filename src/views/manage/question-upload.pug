@@ -1,0 +1,20 @@
+extend ../base
+
+block content 
+    div.input-line
+      span Line
+      input(name="line" type="text" placeholder="Line" value="13")
+      button.input-line-btn 바둑판 생성
+    div.question-upload.hidden 
+      span 문제
+      input(name="title" type="text" placeholder="제목" class="question-upload__title")
+      div.question-upload__firstTurn 
+        button.question-upload__turn-black.clicked 흑차례 
+        button.question-upload__turn-white 백차례
+      div.question-upload__pick-color
+        button.question-upload__black-btn.clicked Black 
+        button.question-upload__white-btn White
+      canvas(id='question' class="question-canvas")
+      button.question-upload__finish-btn 완료
+block script 
+    script(src="/assets/js/questionUpload.js") 

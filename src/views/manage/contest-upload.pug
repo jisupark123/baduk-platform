@@ -1,0 +1,81 @@
+extend ../base
+
+block content
+    if errorMessage 
+        span=errorMessage
+    form(method="POST" autocomplete='off')
+        label(for="title") 대회 이름
+        input(name="title" type="text" id="title") 
+        br
+        label(for="link") 링크
+        input(name="link" type="text" id="link") 
+        br
+        label 날짜
+        input(name="dates" type="date")
+        input(name="dates" type="date")
+        input(name="dates" type="date")
+        -for(i = 1; i <= 5; i++)
+            div
+                br
+                label(for=`sectionName${i}`) 참가부문
+                input(name=`sectionName${i}` type="text" id=`sectionName${i}`)
+                br
+                label 필수 조건
+                -for(k = 1; k <= 5; k++)
+                    select(name=`section${i}-requirement-type` id=`section${i}-requirement${k}-type` class="section-type")
+                        option(value="") 기준
+                        option(value="sex") 성별
+                        option(value="age-over") 나이(이상)
+                        option(value="age-under") 나이(미만)
+                        option(value="school") 재학중인 학교
+                        option(value="belongNow") 현 소속
+                        option(value="belongPre") 전 소속
+                    select(name=`section${i}-requirement-value` id=`section${i}-requirement${k}-value`)
+                        option(value="") 
+                br
+                label 필수조건(Or)
+                -for(r = 1; r <= 6; r++)
+                    select(name=`section${i}-requirementOr-type` id=`section${i}-requirementOr${r}-type` class="section-type")
+                        option(value="") 기준
+                        option(value="sex") 성별
+                        option(value="age-over") 나이(이상)
+                        option(value="age-under") 나이(미만)
+                        option(value="school") 재학중인 학교
+                        option(value="belongNow") 현 소속
+                        option(value="belongPre") 전 소속
+                    select(name=`section${i}-requirementOr-value` id=`section${i}-requirementOr${r}-value`)
+                        option(value="") 
+                    if r%2===0 && r<6
+                        span ///
+                br
+                label 제외 조건
+                -for(j = 1; j <= 5; j++)
+                    select(name=`section${i}-exclude-type` id=`section${i}-exclude${j}-type` class="section-type")
+                        option(value="") 기준
+                        option(value="sex") 성별
+                        option(value="age-over") 나이(이상)
+                        option(value="age-under") 나이(미만)
+                        option(value="school") 재학중인 학교
+                        option(value="belongNow") 현 소속
+                        option(value="belongPre") 전 소속
+                    select(name=`section${i}-exclude-value` id=`section${i}-exclude${j}-value`)
+                        option(value="") 
+                br
+                label 제외 조건(And)
+                -for(p = 1; p <= 6; p++)
+                    select(name=`section${i}-excludeAnd-type` id=`section${i}-excludeAnd${p}-type` class="section-type")
+                        option(value="") 기준
+                        option(value="sex") 성별
+                        option(value="age-over") 나이(이상)
+                        option(value="age-under") 나이(미만)
+                        option(value="school") 재학중인 학교
+                        option(value="belongNow") 현 소속
+                        option(value="belongPre") 전 소속
+                    select(name=`section${i}-excludeAnd-value` id=`section${i}-excludeAnd${p}-value`)
+                        option(value="") 
+                    if p%2===0 && p<6
+                        span ///
+        input(type="submit" value="등록")
+
+block script
+    script(src="/assets/js/contestUpload.js") 

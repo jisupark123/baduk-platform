@@ -1,0 +1,135 @@
+.input-line{
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  input{
+    all: unset;
+    width: 100px;
+    height: 50px;
+    border: 2px solid blue;
+    caret-color: white;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    &::placeholder{
+      color: white;
+      text-align: center;
+    }
+  }
+}
+
+
+.question-upload{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  .question-upload__title{
+    all: unset;
+    width: 300px;
+    height: 50px;
+    border: 2px solid white;
+    caret-color: white;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    &::placeholder{
+      color: white;
+      text-align: center;
+    }
+
+  }
+  canvas{
+    width: 360px;
+    margin: 30px 30px 30px 0;
+  } 
+  .question-upload__firstTurn{
+    width: 200px;
+    height: 70px;
+    background-color: #e38d00;
+    margin-bottom: 20px;
+    @include flex-center;
+    .question-upload__turn-black{
+      all: unset;
+      width: 80px;
+      height: 40px;
+      margin: 10px;
+      background-color: black;
+      color: white;
+      @include flex-center;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .question-upload__turn-white{
+      all: unset;
+      width: 80px;
+      height: 40px;
+      margin: 10px;
+      background-color: white;
+      color: black;
+      @include flex-center;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .clicked{
+      transform: scale(0.9);
+      opacity: 0.7;
+    }
+    
+  }
+  .question-upload__pick-color{
+    width: 200px;
+    height: 70px;
+    background-color: #e38d00;
+    @include flex-center;
+    .question-upload__black-btn{
+      all: unset;
+      width: 80px;
+      height: 40px;
+      margin: 10px;
+      background-color: black;
+      color: white;
+      @include flex-center;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .question-upload__white-btn{
+      all: unset;
+      width: 80px;
+      height: 40px;
+      margin: 10px;
+      background-color: white;
+      color: black;
+      @include flex-center;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .clicked{
+      transform: scale(0.9);
+      opacity: 0.7;
+    }
+    
+  }
+  .question-upload__finish-btn{
+    border: 2px solid white;
+    color: white;
+    border-radius: 10px;
+    @include flex-center;
+  }
+}
+
+
+span{
+color: white;
+font-size: 2rem;
+margin-bottom: 30px;
+display: block;
+}
+
+
+.hidden{
+  display: none;
+}

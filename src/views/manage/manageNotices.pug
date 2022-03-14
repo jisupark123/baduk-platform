@@ -1,0 +1,8 @@
+extend ../base
+include ../mixins/manageNotice
+
+block content 
+    form(action="notice-delete" method="get") 
+        each notice in notices 
+            +notice(notice)
+        input(type="submit" value="삭제")

@@ -1,0 +1,9 @@
+extend ../base
+
+block content 
+  div.answer-upload
+    span 정답도
+    canvas(class="answer-canvas")
+    button.answer-upload__finish-btn 완료
+block script 
+    script(src="/assets/js/answerUpload.js") 

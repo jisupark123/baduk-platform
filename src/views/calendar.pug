@@ -1,0 +1,24 @@
+extend base
+
+block content 
+    a(href="/users/contest-filter") 필터 추가하기
+    div.calendar(data-contests=contests data-contestFilter=contestFilter)
+        div.calendar__header
+            div.calendar__year-month
+            div.calendar__nav
+                button.calendar__nav-btn.go-pre &lt;
+                button.calendar__nav-btn.go-next &gt;
+
+        div.calendar__main
+            div.calendar__days
+                div.day 일
+                div.day 월
+                div.day 화
+                div.day 수
+                div.day 목
+                div.day 금
+                div.day 토
+            div.calendar__dates
+    
+block script 
+    script(src="/assets/js/calendar.js") 

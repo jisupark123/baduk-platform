@@ -1,0 +1,9 @@
+extend ../base
+
+block content 
+    form(method="POST" autocomplete='off')
+        input(name="title" type="text" placeholder="제목 입력" required) 
+        input(name="content" text="text" placeholder="내용 입력" required) 
+        input(name="isImportant" type="checkbox" id="isImportant")
+        label(for="isImportant") 중요
+        input(type="submit" value="업로드")

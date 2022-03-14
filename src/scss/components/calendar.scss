@@ -1,0 +1,97 @@
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.calendar {
+  max-width: 700px;
+  max-height: 80vh;
+  margin: 0 auto;
+  border: 1px solid black;
+  padding: 30px;
+  .calendar__header {
+    width: 100%;
+    @include flex-center;
+    flex-direction: column;
+    .calendar__year-month {
+    }
+    .calendar__nav {
+      width: 150px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  .calendar__main {
+    width: 100%;
+    @include flex-center;
+    flex-direction: column;
+    .calendar__days {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      justify-items: center;
+    }
+    .calendar__dates {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      border-top: 1px solid black;
+      border-right: 1px solid black;
+      .calendar__date {
+        position: relative;
+        height: 80px;
+        border-bottom: 1px solid black;
+        border-left: 1px solid black;
+        .this,
+        .other {
+          margin: 10px;
+          width: 25px;
+          height: 25px;
+          @include flex-center;
+        }
+        .calendar__contest {
+          color: black;
+        }
+        .mini-window {
+          $width: 300px;
+          $height: 150px;
+          top: -50%;
+          left: -($width / 2);
+          position: absolute;
+          z-index: 100;
+          width: $width;
+          height: $height;
+          background-color: white;
+          border: 2px solid green;
+          font-size: 1.3rem;
+          color: black;
+          display: flex;
+          flex-direction: column;
+          animation: fadein 0.5s ease-in-out;
+        }
+        .other {
+          opacity: 0.5;
+        }
+        .today {
+          position: relative;
+          color: white;
+          background-color: red;
+          border-radius: 50%;
+        }
+      }
+    }
+    .calendar__day:nth-child(7n + 1),
+    .calendar__date:nth-child(7n + 1) {
+      color: red;
+    }
+    .calendar__day:nth-child(7n),
+    .calendar__date:nth-child(7n) {
+      color: blue;
+    }
+  }
+}

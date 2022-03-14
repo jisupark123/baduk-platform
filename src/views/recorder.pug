@@ -1,0 +1,9 @@
+extend base
+block content
+  button.record-btn Start Recording
+  video#preview
+  button.audio-record-btn Start Recording 
+  audio(controls)#audio-preview
+
+block script 
+  script(src="/assets/js/recorder.js") 

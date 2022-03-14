@@ -1,0 +1,45 @@
+header.header
+    //- div.header__logo
+    //-     a(href="#")
+    //-         img(src="#")
+      
+    ul.header__links
+        li 
+            a(href="/") Home 
+        //- li
+        //-     a(href="#") 깐부 바둑 소개
+        //- li
+        //-     a(href="#") 사범진
+        //- li
+        //-     a(href="#") 교육 과정
+        //- li
+        //-     a(href="#") 레슨 신청
+        //- li  
+        //-     a(href="/notices") 공지사항
+        //- li 
+        //-     a(href="/manage/notices") 공지사항 (관리자)   
+        //- li 
+        //-     a(href="/manage/contest-upload") 대회 업로드(관리자)
+        //- li 
+        //-     a(href="/manage/question-upload") 사활 업로드(관리자)
+        //- li 
+        //-     a(href="/manage/notice-upload") 공지사항 올리기 
+        //- li 
+        //-     a(href="/manage/booked") 예약자 현황
+        //- li 
+        //-     a(href="/dashboard") Dashboard
+        //- li 
+        //-     a(href="/test") Test
+        li 
+            a(href="/users/make-gibo") 기보 만들기
+
+        if loggedIn
+            li 
+                a(href="/logout") 로그아웃
+       
+        else 
+
+            li 
+                a(href="/login") 로그인
+            li 
+                a(href="/join") 회원가입 

@@ -1,0 +1,33 @@
+extend base
+
+block content
+  .make-gibo-container 
+    .info
+      form(method='post' autocomplete='off')
+        label(for="title") 기전명
+        input(name='title' id='title' type='text') 
+        label(for="blackPlayer") 흑 대국자
+        input(name='blackPlayer' id='blackPlayer' type='text' required) 
+        label(for="whitePlayer") 백 대국자
+        input(name='whitePlayer' id='whitePlayer' type='text' required) 
+        label(for="adventage") 덤
+        input(name='adventage' id='adventage' type='number' value= 6.5 required) 
+        label(for="result") 결과
+        input(name='result' id='result' type='text' required) 
+        button#gibo-start-btn 기보 만들기
+    .gibo.hidden
+      canvas
+      .tools 
+        button#goBegin &laquo;
+        button#showNumBtn 순서 표시
+        button 임시 저장
+        button#goEnd &raquo;
+        button#goBefore5 -5
+        button#goBefore1 -1
+        button#goNext1 +1
+        button#goNext5 +5
+        button.save 저장
+    
+
+block script
+  script(src="/assets/js/makeGibo.js") 

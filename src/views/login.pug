@@ -1,0 +1,9 @@
+extend base
+block content 
+    if errorMessage 
+        span=errorMessage
+    form(method="Post" autocomplete='off')
+        input(name="userId" type="text" required placeholder="아이디" )
+        input(name="password" type="password" required placeholder="비밀번호")
+        input(type="submit" value="로그인")
+    a(href="/user/kakao/start") 

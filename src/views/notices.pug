@@ -1,0 +1,8 @@
+extend base
+include mixins/notice
+
+block content 
+    
+    ul
+        each notice in notices 
+            +notice(notice)
