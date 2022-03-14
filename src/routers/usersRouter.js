@@ -4,9 +4,9 @@ import {
   getContestFilter,
   getMakeGibo,
   postContestFilter,
-  postMakeGibo,
   startKakaoLogin,
 } from '../controllers/usersController';
+import { protectorMiddleware } from '../middleware';
 
 const usersRouter = express.Router();
 
@@ -16,7 +16,7 @@ usersRouter
   .route('/contest-filter')
   .get(getContestFilter)
   .post(postContestFilter);
-usersRouter.route('/make-gibo').get(getMakeGibo).post(postMakeGibo);
+usersRouter.get('/make-gibo', protectorMiddleware, getMakeGibo);
 
 // usersRouter.get("/delete", deleteUser);
 

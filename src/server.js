@@ -6,6 +6,7 @@ import { localsMiddleware } from './middleware';
 import globalRouter from './routers/globalRouter';
 import usersRouter from './routers/usersRouter';
 import manageRouter from './routers/manageRouter';
+import apiRouter from './routers/apiRouter';
 const app = express();
 
 const logger = morgan('dev');
@@ -30,9 +31,10 @@ app.use(
 );
 
 app.use(localsMiddleware);
+app.use('/assets', express.static('assets'));
 app.use('/', globalRouter);
 app.use('/users', usersRouter);
 app.use('/manage', manageRouter);
-app.use('/assets', express.static('assets'));
+app.use('/api', apiRouter);
 
 export default app;

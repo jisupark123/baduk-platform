@@ -4,6 +4,12 @@
   const canvas = document.querySelector('canvas');
   const gibo = document.querySelector('.gibo');
   const tools = document.querySelector('.tools');
+  const form = document.querySelector('form');
+  const titleInput = form.querySelector('#title');
+  const blackPlayerInput = form.querySelector('#blackPlayer');
+  const whitePlayerInput = form.querySelector('#whitePlayer');
+  const adventageInput = form.querySelector('#adventage');
+  const resultInput = form.querySelector('#result');
   const showNumBtn = tools.querySelector('#showNumBtn');
   const goBeginBtn = tools.querySelector('#goBegin');
   const goEndBtn = tools.querySelector('#goEnd');
@@ -11,6 +17,7 @@
   const goBefore1Btn = tools.querySelector('#goBefore1');
   const goNext1Btn = tools.querySelector('#goNext1');
   const goNext5Btn = tools.querySelector('#goNext5');
+  const saveBtn = tools.querySelector('.save');
 
   //---------------------------- variables ---------------------------------------------
   const hiddenClassName = 'hidden';
@@ -329,7 +336,6 @@
       sequence.push(xyToIndex(x, y));
       record = record.slice(0, count);
       record.push({ board: [...board], sequence: [...sequence] });
-      console.log(record);
       renderCurrentBoard();
     }
   });
@@ -382,11 +388,53 @@
     count = move;
     renderCurrentBoard();
   }
-  function goToTheEnd() {}
-  function goTo5Before() {}
-  function goTo1Before() {}
-  function goTo1Next() {}
-  function goTo5Next() {}
+
+  const saveGibo = async () => {
+    const title = titleInput.value.trim();
+    const blackPlayer = blackPlayerInput.value.trim();
+    const whitePlayer = whitePlayerInput.value.trim();
+    const adventage = adventageInput.value.trim();
+    const result = resultInput.value.trim();
+    if (!blackPlayer) {
+      alert('흑 대국자를 입력해주세요');
+      blackPlayerInput.focus();
+      return;
+    } else if (!whitePlayer) {
+      alert('백 대국자를 입력해주세요');
+      whitePlayerInput.focus();
+      return;
+    } else if (!adventage) {
+      alert('덤을 입력해주세요');
+      adventage.focus();
+      return;
+    } else if (!result) {
+      alert('결과를 입력해주세요');
+      result.focus();
+      return;
+    }
+    record = record.slice(0, count + 1);
+    const response = await fetch('/api/save-gibo', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        title,
+        blackPlayer,
+        whitePlayer,
+        adventage,
+        result,
+        record,
+      }),
+    });
+    if (response.status === 201) {
+      alert('저장되었습니다');
+      window.location.href = '/';
+    } else {
+      const { errorMessage } = await response.json();
+      alert(`다시 시도해주십시오\n\n${errorMessage}`);
+    }
+  };
 
   //---------------------------- addEventListeners ---------------------------------------------
   giboStartBtn.addEventListener('click', handlegiboStartBtnClick);
@@ -397,4 +445,5 @@
   goBefore1Btn.addEventListener('click', () => remoteControl(-1));
   goNext1Btn.addEventListener('click', () => remoteControl(1));
   goNext5Btn.addEventListener('click', () => remoteControl(5));
+  saveBtn.addEventListener('click', saveGibo);
 })();

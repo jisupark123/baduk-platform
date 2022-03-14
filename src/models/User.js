@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   socialOnly: { type: Boolean, default: false },
   contestFilter: { type: Object },
-  Gibos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Gibo' }],
+  gibos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Gibo' }],
 });
 
 userSchema.pre('save', async function () {
