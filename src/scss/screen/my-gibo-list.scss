@@ -1,0 +1,60 @@
+.my-gibo-list-container {
+  @include flex-center;
+  flex-direction: column;
+  width: 60%;
+  margin: 100px auto;
+  padding-bottom: 100px;
+  .gibo-list {
+    display: grid;
+    grid-template-rows: repeat(auto, 1fr);
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 100px;
+    a {
+      position: relative;
+      display: flex;
+      align-items: center;
+      min-height: 100px;
+      border: 2px solid whitesmoke;
+      border-radius: 10px;
+      font-size: 1.8rem;
+      .title {
+        @include flex-center;
+        width: 20%;
+      }
+      .player {
+        @include flex-center;
+        width: 40%;
+        .winner,
+        .loser {
+          margin: 0 10px;
+        }
+        .winner {
+          color: rgb(50, 226, 117);
+        }
+      }
+      .result {
+        @include flex-center;
+        position: absolute;
+        right: 50px;
+      }
+    }
+  }
+  .page-remote-control {
+    @include flex-center;
+    font-size: 1.5rem;
+    .page-btn {
+      margin: 0 5px;
+    }
+    .prev-btn {
+    }
+    .current {
+      color: aqua;
+    }
+    .next-btn {
+    }
+    .disabled {
+      opacity: 0.5;
+    }
+  }
+}

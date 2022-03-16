@@ -2,7 +2,6 @@ import express from 'express';
 import {
   calendar,
   getContestFilter,
-  getMakeGibo,
   postContestFilter,
   startKakaoLogin,
 } from '../controllers/usersController';
@@ -16,7 +15,6 @@ usersRouter
   .route('/contest-filter')
   .get(getContestFilter)
   .post(postContestFilter);
-usersRouter.get('/make-gibo', protectorMiddleware, getMakeGibo);
 
 // usersRouter.get("/delete", deleteUser);
 

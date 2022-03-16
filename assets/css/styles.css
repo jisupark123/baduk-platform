@@ -136,11 +136,23 @@ table {
   box-sizing: border-box;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+}
+.header .header__logo {
+  width: 40%;
+}
 .header .header__links {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  color: blue;
+  width: 40%;
+  height: 150px;
+  color: white;
+  font-size: 2rem;
   font-weight: bold;
 }
 
@@ -427,7 +439,7 @@ span {
 .make-gibo-container .info {
   display: flex;
   justify-content: center;
-  margin: 100px auto;
+  margin: 0 auto 100px auto;
   width: 50%;
 }
 .make-gibo-container .info form {
@@ -489,6 +501,129 @@ span {
   transform: translate(-50%, -50%);
   width: 100px;
 }
+.make-gibo-container .hidden {
+  display: none;
+}
+
+.my-gibo-list-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 60%;
+  margin: 100px auto;
+  padding-bottom: 100px;
+}
+.my-gibo-list-container .gibo-list {
+  display: grid;
+  grid-template-rows: repeat(auto, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 100px;
+}
+.my-gibo-list-container .gibo-list a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100px;
+  border: 2px solid whitesmoke;
+  border-radius: 10px;
+  font-size: 1.8rem;
+}
+.my-gibo-list-container .gibo-list a .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+}
+.my-gibo-list-container .gibo-list a .player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+.my-gibo-list-container .gibo-list a .player .winner,
+.my-gibo-list-container .gibo-list a .player .loser {
+  margin: 0 10px;
+}
+.my-gibo-list-container .gibo-list a .player .winner {
+  color: #32e275;
+}
+.my-gibo-list-container .gibo-list a .result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 50px;
+}
+.my-gibo-list-container .page-remote-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+.my-gibo-list-container .page-remote-control .page-btn {
+  margin: 0 5px;
+}
+.my-gibo-list-container .page-remote-control .current {
+  color: aqua;
+}
+.my-gibo-list-container .page-remote-control .disabled {
+  opacity: 0.5;
+}
+
+.watch-gibo-container .gibo {
+  display: flex;
+}
+.watch-gibo-container .gibo canvas {
+  margin-right: 50px;
+}
+.watch-gibo-container .gibo .sub-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  padding: 30px 20px;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+.watch-gibo-container .gibo .sub-box .tools {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 80px;
+  justify-items: center;
+  margin-bottom: 70px;
+}
+.watch-gibo-container .gibo .sub-box .tools button {
+  margin: 10px;
+  font-size: 1.6rem;
+}
+.watch-gibo-container .gibo .sub-box .tools button:nth-child(1),
+.watch-gibo-container .gibo .sub-box .tools :nth-child(4) {
+  font-size: 2.3rem;
+}
+.watch-gibo-container .gibo .sub-box .info {
+  width: 100%;
+}
+.watch-gibo-container .gibo .sub-box .info span {
+  all: unset;
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+.watch-gibo-container .gibo .sub-box .info div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+  margin-bottom: 20px;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-size: 2rem;
+}
+
 html {
   width: 100vw;
   height: 100vh;
@@ -499,6 +634,7 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: black;
+  color: white;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 

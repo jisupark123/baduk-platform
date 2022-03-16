@@ -413,7 +413,7 @@
       return;
     }
     record = record.slice(0, count + 1);
-    const response = await fetch('/api/save-gibo', {
+    const response = await fetch('/gibo/upload', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

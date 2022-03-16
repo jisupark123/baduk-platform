@@ -4,6 +4,6 @@ import { protectorMiddleware } from '../middleware';
 
 const apiRouter = express.Router();
 
-apiRouter.post('/save-gibo', protectorMiddleware, saveGibo);
+// apiRouter.post('/save-gibo', protectorMiddleware, saveGibo);
 
 export default apiRouter;

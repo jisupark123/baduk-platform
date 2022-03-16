@@ -1,0 +1,50 @@
+.watch-gibo-container {
+  .gibo {
+    display: flex;
+    canvas {
+      margin-right: 50px;
+    }
+    .sub-box {
+      @include flex-center;
+      flex-direction: column;
+      height: 100%;
+      padding: 30px 20px;
+      border: 1px solid white;
+      border-radius: 5px;
+      .tools {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 80px;
+        justify-items: center;
+        margin-bottom: 70px;
+
+        button {
+          margin: 10px;
+          font-size: 1.6rem;
+        }
+        button:nth-child(1),
+        :nth-child(4) {
+          font-size: 2.3rem;
+        }
+      }
+      .info {
+        width: 100%;
+        span {
+          all: unset;
+          display: block;
+          margin-bottom: 10px;
+          font-size: 1.5rem;
+        }
+        div {
+          @include flex-center;
+          min-height: 50px;
+          margin-bottom: 20px;
+          border: 1px solid white;
+          border-radius: 5px;
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}

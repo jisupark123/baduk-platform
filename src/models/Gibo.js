@@ -8,6 +8,7 @@ const giboSchema = new mongoose.Schema({
   result: { type: String, required: true },
   gibo: { type: Array, required: true },
   owner: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User' },
+  createdAt: { type: Date, required: true, default: Date.now },
 });
 
 const Gibo = mongoose.model('Gibo', giboSchema);

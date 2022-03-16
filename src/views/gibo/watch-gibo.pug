@@ -1,0 +1,37 @@
+extend ../base
+
+block content
+  .watch-gibo-container 
+      .gibo(data-gibo=gibo.gibo)
+          canvas
+          .sub-box
+              .tools 
+                  button#goBegin &laquo;
+                  button#showNumBtn 순서 표시
+                  button 
+                  button#goEnd &raquo;
+                  button#goBefore5 -5
+                  button#goBefore1 -1
+                  button#goNext1 +1
+                  button#goNext5 +5
+              .info
+                  span 기전명
+                  .title=gibo.title 
+                  span 흑 대국자
+                  .black-player=gibo.blackPlayer 
+                  span 백 대국자
+                  .white-player=gibo.whitePlayer 
+                  span 덤
+                  .adventage=gibo.adventage 
+                  span 결과
+                  .result=gibo.result
+
+                      
+                  
+
+
+
+    
+
+block script
+  script(src="/assets/js/watchGibo.js") 

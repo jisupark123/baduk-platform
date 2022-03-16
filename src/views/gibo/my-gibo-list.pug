@@ -1,0 +1,37 @@
+extend ../base
+
+block content 
+  .my-gibo-list-container
+    .gibo-list
+      each gibo in gibos
+        a(href=`${gibo._id}`)
+          .title=gibo.title
+          .player 
+            if gibo.result[0] === '흑'
+              .winner=gibo.blackPlayer
+            else 
+              .loser=gibo.blackPlayer
+            .vs vs
+            if gibo.result[0] === '백'
+              .winner=gibo.whitePlayer
+            else 
+              .loser=gibo.whitePlayer
+          .result #{gibo.gibo.length}수 #{gibo.result}
+          //- .date
+    .page-remote-control
+      if startPage > maxPost
+          a.prev-btn.page-btn(href=`/gibo/my-list?page=${startPage - 1}`) 이전
+      else 
+          a.prev-btn.page-btn.disabled(href="javascript:void(0)") 이전
+      -for(let i = startPage; i <= endPage; i++)
+          if i === currentPage
+              a.page-btn.current(href=`/gibo/my-list?page=${i}`)=i
+          else 
+              a.page-btn(href=`/gibo/my-list?page=${i}`)=i
+      if endPage < totalPage
+          a.next-btn.page-btn(href=`/gibo/my-list?page=${endPage + 1}`) 다음
+      else 
+          a.next-btn.page-btn.disabled(href="javascript:void(0)") 다음
+
+
+block script 

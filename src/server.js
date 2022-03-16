@@ -7,6 +7,7 @@ import globalRouter from './routers/globalRouter';
 import usersRouter from './routers/usersRouter';
 import manageRouter from './routers/manageRouter';
 import apiRouter from './routers/apiRouter';
+import giboRouter from './routers/giboRouter';
 const app = express();
 
 const logger = morgan('dev');
@@ -35,6 +36,6 @@ app.use('/assets', express.static('assets'));
 app.use('/', globalRouter);
 app.use('/users', usersRouter);
 app.use('/manage', manageRouter);
-app.use('/api', apiRouter);
+app.use('/gibo', giboRouter);
 
 export default app;
