@@ -1,0 +1,29 @@
+.login-container {
+  @include flex-center;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+  form {
+    all: unset;
+    @include flex-center;
+    flex-direction: column;
+    width: 100%;
+    input {
+      all: unset;
+      width: 100%;
+      height: 40px;
+      padding: 10px;
+      border: 1px solid white;
+      font-size: 2rem;
+      ::placeholder {
+      }
+    }
+    .submit {
+      @include flex-center;
+      width: 150px;
+      margin-top: 50px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  }
+}

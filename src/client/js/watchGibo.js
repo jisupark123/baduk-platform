@@ -31,10 +31,10 @@
   const black = 1; // 검은돌은 1
   const white = 2; // 흰돌은 2
   let gibo = JSON.parse(dataset.dataset.gibo);
-  let count = gibo.length - 1;
+  let count = 0;
   let recordPae = {};
-  let board = [...gibo[gibo.length - 1].board];
-  let sequence = [...gibo[gibo.length - 1].sequence];
+  let board = [...gibo[0].board];
+  let sequence = [...gibo[0].sequence];
   const checkDirection = [
     [1, 0],
     [0, -1],

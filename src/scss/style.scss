@@ -10,6 +10,8 @@
 @import './components/share.scss';
 
 // Screens
+@import './screen/join.scss';
+@import './screen/login.scss';
 @import './screen/question-upload.scss';
 @import './screen/answer-upload.scss';
 @import './screen/failure-upload.scss';
